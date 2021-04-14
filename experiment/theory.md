@@ -39,7 +39,7 @@ The block diagram and truth table of the 2 input multiplexer is given below:
 
 <img src="images/symb_2_mux.jpg">
 
-<img src="imagestruth_table_2mux.jpg">
+<img src="images/truth_table_2mux.jpg">
 
 The logical expression for output can be **AS'+BS**. If we implement this logic using nands and nors then no. of transistor required would be 5. We can use the knowledge of pass transistors,control variables an pass variables.
 
