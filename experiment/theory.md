@@ -43,15 +43,15 @@ The block diagram and truth table of the 2 input multiplexer is given below:
 
 The logical expression for output can be **AS'+BS**. If we implement this logic using nands and nors then no. of transistor required would be 5. We can use the knowledge of pass transistors,control variables an pass variables.
 
-    - Choice of control variable and pass variable??
+ - Choice of control variable and pass variable??
+ 
+    Select input should be the control variable and data inputs can act as pass variables
 
-      Select input should be the control variable and data inputs can act as pass variables
-
-    - Whether to use nmos/pmos pass transistor ??
+ - Whether to use nmos/pmos pass transistor ??
 
     Since nmos is preferable in passing logic 0 and pmos is preffered in passing logic 1. We use a combination of both with complementing control variables. This ensures that both are on simultaneously and any value applied at the input appears at the output
 
-<img src="imagese/pass_transistor_s1.jpg">
+<img src="images/pass_transistor_s1.jpg">
 
 The upper combination of nmos and pmos is switched on and hence B is passed. Similarily if select variable is 0 A is passed.
 
