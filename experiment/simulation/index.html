@@ -1,21 +1,272 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<!-- Add CSS at the head of HTML file -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual labs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.7-b/css/style.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.6/js/jsplumb.min.js"></script>
     <link rel="stylesheet" href="./css/main.css">
 </head>
+
 <body>
-		<!-- Your code goes here-->
+    <div class="columns mt-2 is-variable is-1 is-centered is-flex is-flex-wrap-wrap">
+        <div class="v-tabs">
+            <ul>
+                <li class="is-active">
+                    <a>
+                        <span>MUX</span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span>PASSTRANSISTOR</span>
+                    </a>
+                </li>
 
-	<p><li>Make sure that you have<a href="../../../Introduction.html" target="_PARENT"> prerequisites</a> installed to run experiment</li> </p>
+            </ul>
+        </div>
+    </div>
 
-   <p> <a href="exp5/exp5_mux.html">Start the Experiment On Positive Level Pass Transistor and Multiplexer</a></p>    
+    <div class="columns mt-2 is-variable is-1 is-centered is-flex is-flex-wrap-wrap">
+        <div id="start" class="column is-2-desktop is-2-tablet is-3-mobile my-2 center-content">
+            <button class="v-button has-background-success" onclick="check_and_validate()">Validate</button>
+        </div>
+        <div id="restart" class="column is-2-desktop is-2-tablet is-3-mobile my-2 center-content">
+            <button class="v-button has-background-warning-dark" onclick="refresh()">Reset</button>
+        </div>
+    </div>
 
-   <p> <a href="exp5/exp5_Pass_negative/exp5_Pass_negative.html">Start the Experiment On Negative Level Pass Transistor</a> </p>
+    <div class="columns is-centered is-flex">
+        <div class="column mt-2 is-4-desktop is-10-tablet is-10-mobile has-text-centered">
+            <div class="v-instruction-container">
+                <div class="v-instruction-title">Instructions</div>
+
+                <div id="success-message" class="v-instruction-text">
+
+                </div>
+                <div id="error-message" class="v-instruction-text">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="columns mt-2 is-variable is-1 is-centered is-flex is-flex-wrap-wrap">
+        <div class="column is-2-desktop is-3-tablet is-2-mobile my-2 center-content">
+            <div class="toolbar">
+                <div class="toolbar-title is-size-5 v-bold has-text-centered">
+                    ToolBar
+                </div>
+                <div class="toolbar-item-list">
+                    <div class="toolbar-component" onclick="jpmos()">
+                        <div class="each-toolbar-component has-text-centered">
+                            <svg class="svg-component" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                                <g>
+                                    <path d="M 29.78 77 L 29.78 27" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                    <path d="M 35.33 77 L 35.33 27" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                    <path d="M 35.33 39.5 L 52 39.5 L 52 2" fill="none" stroke="green"
+                                        stroke-width="2.5" stroke-miterlimit="0.01" />
+                                    <path d="M 52 102 L 52 64.5 L 35.33 64.5" fill="none" stroke="green"
+                                        stroke-width="2.5" stroke-miterlimit="0.01" />
+                                    <path d="M 2 52 L 18.67 52" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                    <ellipse cx="24.02" cy="51.11" rx="5.357142857142858" ry="5.357142857142858"
+                                        fill="none" stroke="green" stroke-width="2.5" />
+                                </g>
+                            </svg>
+                            PMOS
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="jnmos()">
+                        <div class="each-toolbar-component has-text-centered">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="svg-component" height="100" width="100"
+                                viewBox="0 0 100 100">
+                                <g class="draggable-group">
+                                    <path d="M 27.71 77 L 27.71 27" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                    <path d="M 36.29 77 L 36.29 27" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                    <path d="M 36.29 39.5 L 62 39.5 L 62 2" fill="none" stroke="green"
+                                        stroke-width="2.5" stroke-miterlimit="0.01" />
+                                    <path d="M 62 102 L 62 64.5 L 36.29 64.5" fill="none" stroke="green"
+                                        stroke-width="2.5" stroke-miterlimit="0.011" />
+                                    <path d="M 2 52 L 27.71 52" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01">
+                                </g>
+                            </svg>
+                            NMOS
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="jvdd()">
+                        <div class="each-toolbar-component has-text-centered">
+                            <svg class="svg-component" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                                <g>
+                                    <path d="M 21 41 L 21 1 L 1 1 L 41 1" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                </g>
+                            </svg>
+                            VDD
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="jground()">
+                        <div class="each-toolbar-component has-text-centered">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="svg-component" height="100" width="100"
+                                viewBox="0 0 100 100">
+                                <g>
+                                    <path d="M 1 31 L 61 31 L 31 31 L 31 1" fill="none" stroke="green"
+                                        stroke-width="2.5" stroke-miterlimit="0.01" />
+                                    <path d="M 11 41 L 51 41" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                    <path d="M 21 51 L 41 51" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                </g>
+                            </svg>
+                            Ground
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="jinput()">
+                        <div class="each-toolbar-component has-text-centered">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="svg-component" height="100" width="100"
+                                viewBox="0 0 100 100">
+                                <g>
+                                    <path d="M 1 31 L 1 1 L 61 1 L 41 31" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                    <path d="M 1 31 L 41 31" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                </g>
+                            </svg>
+                            Input
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="joutput()">
+                        <div class="each-toolbar-component has-text-centered">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="svg-component" height="100" width="100"
+                                viewBox="0 0 100 100">
+                                <g>
+                                    <path d="M 61 31 L 61 1 L 1 1 L 21 31" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                    <path d="M 61 31 L 21 31" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                </g>
+                            </svg>
+                            Output
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="jclock()">
+                        <div class="each-toolbar-component has-text-centered">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="svg-component" height="100" width="100"
+                                viewBox="0 0 100 100">
+                                <g>
+                                    <path d="M 61 31 L 61 1 L 1 1 L 21 31" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                    <path d="M 61 31 L 21 31" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                </g>
+                            </svg>
+                            Clock
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="jclockbar()">
+                        <div class="each-toolbar-component has-text-centered">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="svg-component" height="100" width="100"
+                                viewBox="0 0 100 100">
+                                <g>
+                                    <path d="M 61 31 L 61 1 L 1 1 L 21 31" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                    <path d="M 61 31 L 21 31" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                </g>
+                            </svg>
+                            Clock_bar
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="jtransistor()">
+                        <div class="each-toolbar-component has-text-centered">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="svg-component" height="100" width="100"
+                                viewBox="0 0 100 100">
+                                <g>
+                                    <path d="M 1 81 L 1 1 L 41 21 L 1 41" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" pointer-events="stroke" />
+                                </g>
+                            </svg>
+                            Transistor
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="column is-7-desktop is-9-tablet is-10-mobile my-2 center-content workspace">
+            <div class="is-flex is-flex-wrap-wrap center-content simulation-container" id="diagram">
+            </div>
+        </div>
+        <div class="column is-3-desktop is-6-tablet is-6-mobile my-2 center-content graph">
+            <div class="toolbar">
+                <div class="toolbar-title is-size-5 v-bold has-text-centered">
+                    Observation
+                </div>
+                <div id="output-box">
+                    <img src="" id="graph-image" style="visibility:none" alt="">
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const jsmap = new Map();
+        var list_pmos = [];
+        var list_nmos = [];
+        var list_input = [];
+        var list_ouput = [];
+        var list_ground = [];
+        var list_vdd = [];
+        var list_inverter = [];
+        var list_clock = [];
+        var list_clock_bar = [];
 
 
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+        var container = document.getElementById("diagram");
+        container.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+
+
+        });
+        var pmos_nand = 0;
+        var nmos_nand = 0;
+        var input_x = true;
+        var input_y = true;
+        function checkinput()
+        {
+            var x = document.getElementById("myForm").elements[0].checked;
+            var y = document.getElementById("myForm").elements[2].checked;
+            console.log(x, y)
+        }
+        var selected_tab = 0
+        const tabs = document.querySelectorAll('.v-tabs li');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(item => item.classList.remove('is-active'));
+                tab.classList.add('is-active');
+
+                var parent = tab.parentNode;
+                selected_tab = Array.prototype.indexOf.call(parent.children, tab);
+            })
+        })
+    </script>
+    <script src="js/components.js"></script>
+    <script src="js/integrate.js"></script>
+    <script src="js/circuit.js"></script>
+    <script src = "js/mux.js"></script>
+
+    
 </body>
+
 </html>
