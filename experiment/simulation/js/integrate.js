@@ -151,7 +151,7 @@ function comp2Input1() {
     d.innerHTML = 'Input 2<br><br>'
     d.id = id;
     d.className = 'io-component';
-    d.style.top = "1.25rem";
+    d.style.top = "5.25rem";
     d.style.left = "0.625rem";
     const container = document.getElementById("diagram");
     container.insertAdjacentElement("afterbegin", d);
