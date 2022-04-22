@@ -1,3 +1,4 @@
+'use strict';
 
 const jsplumbInstance = jsPlumb.getInstance({
 
@@ -27,14 +28,11 @@ jsplumbInstance.bind("ready", function () {
 
 
 function editConnectionMap() {
-    const con = jsplumbInstance.getAllConnections();
     connectionMap.clear();
-    for (i = 0; i < con.length; i++) {
-        const s = con[i].sourceId, t = con[i].targetId;
-        const r = s.concat("$", t);
-        connectionMap.set(r, t)
-
-    }
+    jsplumbInstance.getAllConnections().forEach(connection => {
+        const connectionId = `${connection.sourceId}$${connection.targetId}`
+        connectionMap.set(connectionId, connection.targetId)
+    });
 }
 
 jsplumbInstance.bind("connection", () => {
@@ -48,50 +46,51 @@ jsplumbInstance.bind("dblclick", function (ci) {
 
 });
 
-const count = {PMOS: 0, NMOS: 0, VDD: 0, Ground: 0, Inverter: 0, Mux: 0, Latch: 0, Transistor: 0, Clock: 0, Clockbar: 0}
-const maxCount = {PMOS: 1, NMOS: 1, VDD: 0, Ground: 0, Inverter: 0, Mux: 0, Latch: 0, Transistor: 2, Clock: 1, Clockbar: 1}
+const count = { PMOS: 0, NMOS: 0, VDD: 0, Ground: 0, Inverter: 0, Mux: 0, Latch: 0, Transistor: 0, Clock: 0, Clockbar: 0 };
+const maxCount = { PMOS: 1, NMOS: 1, VDD: 0, Ground: 0, Inverter: 0, Mux: 0, Latch: 0, Transistor: 2, Clock: 1, Clockbar: 1 };
 
 function addInstancePmos(id) {
-    addInstance(id, [ 0.72, 1, 0, 1 ], -1, true)
+    addInstance(id, [0.72, 1, 0, 1], -1, true)
     addInstance(id, [0, 0.5, -1, 0], -1, false)
     addInstance(id, [0.72, 0, 0, -1], -1, false)
-    // console.log(jsplumbInstance);
-}
+};
 
 function addInstanceNmos(id) {
-    addInstance(id, [0.72, 1, 0, 1 ], -1, false)
+    addInstance(id, [0.72, 1, 0, 1], -1, false)
     addInstance(id, [0, 0.5, -1, 0], -1, false)
     addInstance(id, [0.72, 0, 0, -1], -1, true)
-}
+};
 
 function addInstanceVdd(id) {
-    addInstance(id, [ 0.5, 1, 0, 1 ], -1, true)
-}
+    addInstance(id, [0.5, 1, 0, 1], -1, true)
+};
 
 function addInstanceGround(id) {
     addInstance(id, [0.5, 0, 0, -1], -1, true)
-}
+};
 
 function addInstanceTransistor(id) {
     addInstance(id, [1, 0.5, 1, 0], -1, true)
     addInstance(id, [0.5, 0, 0, -1], -1, false)
     addInstance(id, [0, 0.5, -1, 0], -1, false)
-    addInstance(id, [ 0.5, 1, 0, 1 ], -1, false)
-}
+    addInstance(id, [0.5, 1, 0, 1], -1, false)
+};
+
 function addInstanceClock(id) {
     addInstance(id, [1, 0.25, 1, 0], -1, true)
-}
+};
+
 function addInstanceClockbar(id) {
     addInstance(id, [1, 0.25, 1, 0], -1, true)
-}
+};
 
 function addInstanceFinalInput(id) {
     addInstance(id, [1, 0.5, 1, 0], -1, true)
-}
+};
 
 function addInstanceFinalOutput(id) {
     addInstance(id, [0, 0.5, -1, 0], -1, false)
-}
+};
 
 function addInstance(id, position, num, src) {
     jsplumbInstance.addEndpoint(id, {
@@ -102,9 +101,4 @@ function addInstance(id, position, num, src) {
         maxConnections: num,
         connectionType: "red-connection"
     });
-}
-
-// top -> [0.5, 0, 0, -1]
-// bottom -> [ 0.5, 1, 0, 1 ]
-// right -> [1, 0.5, 1, 0]
-// left -> [0, 0.5, -1, 0]
+};

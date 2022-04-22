@@ -37,7 +37,7 @@
 					<ul style="list-style: disc;">
 						<li>Click or tap on an element in the tool bar to place it in the workspace</li>
 						<li>Double click on a wire to delete it</li>
-						<li>Double click on input element to change it's value</li>
+						<li>Double click or long press on input element to change it's value</li>
 						<li>If you did anything wrong click on reset button</li>
 						<li>Select the appropriate tab and click on validate after completion of circuit</li>
 					</ul>
@@ -159,7 +159,8 @@
 														style="box-sizing: border-box; font-size: 0px; text-align: center;">
 														<div
 															style="display: inline-block; font-size: 14px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: nowrap;">
-															<b>Clk</b></div>
+															<b>Clk</b>
+														</div>
 													</div>
 												</div>
 											</foreignObject><text x="23" y="25" fill="rgb(0, 0, 0)"
@@ -272,14 +273,14 @@
 				<div class="v-datalist-title">
 					Observation
 				</div>
-				<div class="v-datalist-row" id="output-box">
+				<div class="v-datalist-row" style="display:none" id="output-box">
 					<img src="" id="graph-image" style="display:none" alt="Image of graph">
 				</div>
 				<div id="output-text">
 
 				</div>
 				<div class="v-datalist-row text-danger" id="error-container" style="display:none;">
-					Required no.of components of this type are already present in the workspace
+					Required no. of components of this type are already present in the workspace
 				</div>
 			</div>
 		</div>
@@ -292,15 +293,6 @@
 		container.addEventListener("contextmenu", function (e) {
 			e.preventDefault();
 		});
-
-		// let input_x = true;
-		// let input_y = true;
-		// function checkinput()
-		// {
-		//     let x = document.getElementById("myForm").elements[0].checked;
-		//     let y = document.getElementById("myForm").elements[2].checked;
-		//     console.log(x, y)
-		// }
 
 		const currentTab = { MUX: 0, PT: 1 }
 		let selectedTab = currentTab.MUX
@@ -320,7 +312,6 @@
 
 	<script src="js/components.js"></script>
 	<script src="js/integrate.js"></script>
-	<!-- <script src="js/circuit.js"></script> -->
 	<script src="js/mux.js"></script>
 
 	<script>
