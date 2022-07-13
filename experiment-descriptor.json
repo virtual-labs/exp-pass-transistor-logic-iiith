@@ -35,11 +35,25 @@
       "content-type": "assesment"
     },
     {
+      "target": "demo-pass-transistor.html",
+      "source": "simulation/demo-pass-transistor.html",
+      "label": "Demo",
+      "unit-type": "task",
+      "content-type": "simulation"
+    },
+    {
       "target": "simulation.html",
       "source": "simulation/index.html",
       "label": "Simulation",
       "unit-type": "task",
       "content-type": "simulation"
+    },
+    {
+      "target": "posttest.html",
+      "source": "posttest.json",
+      "label": "Posttest",
+      "unit-type": "task",
+      "content-type": "assesment"
     },
     {
       "target": "references.html",

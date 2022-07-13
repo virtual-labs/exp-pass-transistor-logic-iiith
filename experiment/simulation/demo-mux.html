@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/MotionPathPlugin.min.js"></script>
+    <title>
+        Multiplexer: Demo
+    </title>
+</head>
+
+<body>
+    <div class="container" style="margin-top: 1%;">
+        <div class="columns is-centered">
+            <div class="column is-one-quarter v-instruction-title">
+                Tasks
+            </div>
+            <div class="column">
+                <div class="v-tabs">
+                    <ul>
+                        <li id="task1" onclick="window.location.href = 'demo-pass-transistor.html'">
+                            <a>
+                                Pass Transistor Logic
+                            </a>
+                        </li>
+                        <li id="task2" class="is-active">
+                            <a>
+                                2*1 Multiplexer
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="columns is-centered">
+            <div class="column">
+                <div class="v-collapsible-instruction-container v-instruction-container">
+                    <div class="v-collapsible is-size-5">Instructions</div>
+                    <div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+                        <ul style="list-style: disc;">
+                            <li><b>Start</b>- Starts the simulation after the inputs are properly selected. Default
+                                speed is 1x.</li>
+                            <li>Select the speed through dropdown menu</li>
+                            <li><b>Reset</b> - Resets the simulation</li>
+                            <li>Click on the green input bits to set their values.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="columns is-centered">
+        <div class="column" style="margin:auto;text-align:center">
+            <select class="speed-box" autocomplete="off" name="speed" onchange="setSpeed(this.value)" id="speed">
+                <option value="1">1x</option>
+                <option value="2">2x</option>
+                <option value="4">4x</option>
+            </select>
+            <button class="v-button" id="play-or-pause" onclick="simulationStatus()">Start</button>
+            <button class="v-button" id="restart" onclick="restartCircuit()">Reset</button>
+        </div>
+    </div>
+
+    <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start">
+        <div class="column is-9-desktop is-12-tablet is-12-mobile">
+            <div id="circuit-board">
+                <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="120%" viewBox="0 0 925 1000 ">
+                    <!-- Transistor  -->
+                    <g class="demo-transistor">
+                        <path d="M 431 151 L 491 151" />
+                        <path d="M 431 161 L 491 161" />
+                        <path d="M 431 200.88 L 491 200.88" />
+                        <path d="M 431 211 L 491 211" />
+                        <path d="M 441 201 L 441 161" />
+                        <path d="M 481 201 L 481 161" />
+                        <ellipse cx="461" cy="146" rx="5" ry="5" />
+                        <path d="M 461 141 L 461 101" />
+                        <path d="M 481 181 L 521 181" />
+                        <path d="M 401 181 L 441 181" />
+                        <path d="M 461 261 L 461 211" />
+                    </g>
+                    <g class="demo-transistor">
+                        <path d="M 431 551 L 491 551" />
+                        <path d="M 431 561 L 491 561" />
+                        <path d="M 431 600.88 L 491 600.88" />
+                        <path d="M 431 611 L 491 611" />
+                        <path d="M 441 601 L 441 561" />
+                        <path d="M 481 601 L 481 561" />
+                        <ellipse cx="461" cy="546" rx="5" ry="5" />
+                        <path d="M 461 541 L 461 501" />
+                        <path d="M 481 581 L 521 581" />
+                        <path d="M 401 581 L 441 581" />
+                        <path d="M 461 661 L 461 611" />
+                    </g>
+                    <path id="path1" class="demo-wires" d="M 250 181 L 400 181 " />
+                    <!--B to upper transistor-->
+                    <path id="path2" class="demo-wires" d="M 250 581 L 400 581 " />
+                    <!--A to lower transistor-->
+                    <path id="path3" class="demo-wires" d="M 461 381 L 461 261 " />
+                    <!--clk to upper transistor-->
+                    <path id="path4" class="demo-wires" d="M 461 381 L 461 501 " />
+                    <!--clk to upper transistor-->
+                    <path id="path5" class="demo-wires" d="M 150 381 L 150 101 L 460 101 " />
+                    <!--clkbar to upper transistor-->
+                    <path id="path6" class="demo-wires" d="M 150 381 L 150 661 L 460 661 " />
+                    <!--clkbar to upper transistor-->
+                    <path id="path7" class="demo-wires" d="M 520 181 L 660 181 L 660 381 " />
+                    <!--outut to upper transistor-->
+                    <path id="path8" class="demo-wires" d="M 520 581 L 660 581 L 660 381 " />
+                    <!--output to lower transistor-->
+
+                    <circle id="inputB" cx="250" cy="181" r="15" onclick="setInputB()" class="demo-circles" />
+                    <circle id="inputA" cx="250" cy="581" r="15" onclick="setInputA()" class="demo-circles" />
+                    <circle id="clock-bar" cx="150" cy="381" r="15" onclick="setClock()" class="demo-circles" />
+                    <circle id="clock" cx="460" cy="381" r="15" onclick="setClock()" class="demo-circles" />
+                    <circle id="output" cx="660" cy="381" r="15" class="demo-circles" />
+
+                    <text class="demo-text" x="200" y="560">Input A</text>
+                    <text class="demo-text" x="200" y="220">Input B</text>
+                    <text class="demo-text" x="680" y="390">Output</text>
+                    <text class="demo-text" x="400" y="390">Clk</text>
+                    <text style="text-decoration: overline;" class="demo-text" x="90" y="390">Clk</text>
+                </svg>
+            </div>
+        </div>
+        <div class="column is-3-desktop is-4-tablet is-12-mobile">
+            <div class="v-datalist-container components-list">
+                <div class="v-datalist-title">Observations</div>
+                <div class="v-datalist-row">
+                    <div id="observations"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="menu">
+        <ul class="menu-options">
+            <li class="menu-option">Delete</li>
+            <li class="menu-option">Cancel</li>
+        </ul>
+    </div>
+    <script type="module" src="js/animation-mux.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
+</body>
+
+</html>
