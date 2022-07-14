@@ -399,11 +399,10 @@ function simulator2(){
         }, 0);
         textOutput[0].textContent = textInput[1].textContent;
     }
-    else{
-        if(textInput[2].textContent==="1"){
-            setter(textInput[0],inputDots[2]);
-            objectAppear(inputDots[2]);
-            timeline.to(inputDots[2], {
+    else if(textInput[2].textContent==="1"){
+            setter(textInput[0],inputDots[0]);
+            objectAppear(inputDots[0]);
+            timeline.to(inputDots[0], {
                 motionPath: {
                     path: "#path7",
                     align: "#path7",
@@ -421,7 +420,7 @@ function simulator2(){
         
             }, 0);
             textOutput[0].textContent = textInput[0].textContent;
-        }
+        
     }
 }
 
