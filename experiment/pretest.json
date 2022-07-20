@@ -1,46 +1,52 @@
 [
-{"question":"1. Multiplex is a ?",
-"answers":{
-            "a":"Combinational Circuit ",
-            "b":"Combinational Circuit ",
-            "c":" Sequential Circuit",
-            "d":"None of the above"
-          },
-"correctAnswer":"a"},
-            
-{"question":"2. Transmission gate is a ?",
-"answers":{
-            "a":"Parallel combination of two NMOS",
-            "b":"Series combination of NMOS and PMOS",
-            "c":"Parallel combination of NMOS and PMOS",
-            "d":"None of the above"
-          },
-"correctAnswer":"c"}, 
-            
-{"question":"3. Transmission gate is preferred over Complementary CMOS logic because ____",
-"answers":{
-            "a":"Transistor count required to implement a logic function in transmission gate is low",
-            "b":"Low Delay",
-            "c":" Both of them",
-            "d":"None of the above"
-          },
-"correctAnswer":"c"},
-            
-{"question":"4. How many 2x1 multiplexer will be require to design 8x1 multiplexer ?",
-"answers":{
-            "a":"Three ",
-            "b":"Seven",
-            "c":"Four",
-            "d":"Eight"
-          },
-"correctAnswer":"b"},           
-            
-{"question":"5. Multiplexer is also known as:",
-"answers":{
-            "a":"Counter",
-            "b":"Data Select ",
-            "c":"Single Input Many Output",
-            "d":"None"
-          },
-"correctAnswer":"b"}            
+  {
+    "question": "1. Multiplex is a ?",
+    "answers": {
+      "a": "Combinational Circuit ",
+      "b": "Combinational Circuit ",
+      "c": " Sequential Circuit",
+      "d": "None of the above"
+    },
+    "correctAnswer": "a"
+  },
+  {
+    "question": "2. Transmission gate is a ?",
+    "answers": {
+      "a": "Parallel combination of two NMOS",
+      "b": "Series combination of NMOS and PMOS",
+      "c": "Parallel combination of NMOS and PMOS",
+      "d": "None of the above"
+    },
+    "correctAnswer": "c"
+  },
+  {
+    "question": "3. Transmission gate is preferred over Complementary CMOS logic because ____",
+    "answers": {
+      "a": "Transistor count required to implement a logic function in transmission gate is low",
+      "b": "Low Delay",
+      "c": " Both of them",
+      "d": "None of the above"
+    },
+    "correctAnswer": "c"
+  },
+  {
+    "question": "4. How many 2x1 multiplexer will be require to design 8x1 multiplexer?",
+    "answers": {
+      "a": "Three ",
+      "b": "Seven",
+      "c": "Four",
+      "d": "Eight"
+    },
+    "correctAnswer": "b"
+  },
+  {
+    "question": "5. Multiplexer is also known as:",
+    "answers": {
+      "a": "Counter",
+      "b": "Data Select ",
+      "c": "Single Input Many Output",
+      "d": "None"
+    },
+    "correctAnswer": "b"
+  }
 ]

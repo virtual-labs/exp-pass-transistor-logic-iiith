@@ -43,7 +43,10 @@ const inputDots = [
     document.createElementNS(svgns, "circle"),
     document.createElementNS(svgns, "circle")
 ];
-
+const outputDots=[
+    document.createElementNS(svgns, "circle"),
+    document.createElementNS(svgns, "circle")
+];
 
 let decide = false;
 let circuitStarted = false;
@@ -64,7 +67,7 @@ function textIOInit() {
     }
 }
 function outputCoordinates() {
-    setCoordinates(896, 376, textOutput[0]);
+    setCoordinates(892, 380, textOutput[0]);
     svg.append(textOutput[0]);
 }
 
@@ -108,27 +111,45 @@ function allDisappear() {
 
 
 function setInput() {
-    if (textInput[0].textContent !== "0" && timeline.progress() === 0) {
-        changeTo0(26, 376, 0, 0);
+    if(timeline.progress() === 0)
+    {
+        if (textInput[0].textContent !== "0") {
+            changeTo0(22, 380, 0, 0);
+        }
+        else{
+            changeTo1(22, 380, 0, 0);
+        }
+        setter(textInput[0].textContent, inputDots[0]);
+        setter(textInput[0].textContent, inputDots[1]);
     }
-    else if (textInput[0].textContent !== "1" && timeline.progress() === 0) {
-        changeTo1(26, 376, 0, 0);
+    else if(timeline.progress() === 1){
+        observ.innerHTML = "Simulation has finished. Press Reset to start again";
     }
-    setter(textInput[0].textContent, inputDots[0]);
-    setter(textInput[0].textContent, inputDots[1]);
+    else{
+        observ.innerHTML = "Simulation has started wait for it to end";
+    }
 }
 
 function setClock(){
-    if(textInput[1].textContent !== "0" && timeline.progress() === 0){
-        changeTo0(146, 176, 1, 1);
-        changeTo1(146, 576, 2, 2);
+    if(timeline.progress() === 0)
+    {
+        if (textInput[1].textContent !== "0") {
+            changeTo0(142, 180, 1, 1);
+            changeTo1(142, 580, 2, 2);
+        }
+        else{
+            changeTo1(142, 180, 1, 1);
+            changeTo0(142, 580, 2, 2);
+        }
+        setter(textInput[1].textContent, inputDots[2]);
+        setter(textInput[2].textContent, inputDots[3]);
     }
-    else if(textInput[1].textContent !== "1" && timeline.progress() === 0){
-        changeTo1(146, 176, 1, 1);
-        changeTo0(146, 576, 2, 2);
+    else if(timeline.progress() === 1){
+        observ.innerHTML = "Simulation has finished. Press Reset to start again";
     }
-    setter(textInput[1].textContent, inputDots[2]);
-    setter(textInput[2].textContent, inputDots[3]);
+    else{
+        observ.innerHTML = "Simulation has started wait for it to end";
+    }
 }
 
 function changeTo1(coordinateX, coordinateY, object, textObject) {
@@ -136,7 +157,7 @@ function changeTo1(coordinateX, coordinateY, object, textObject) {
     svg.appendChild(textInput[textObject]);
     setCoordinates(coordinateX, coordinateY, textInput[textObject]);
 
-    fillColor(objects[object], "#29e");
+    fillColor(objects[object], "#03b1fc");
     objectAppear(textInput[textObject]);
     clearObservation();
 }
@@ -164,7 +185,7 @@ function setter(value, component) {
     if (value === "1") {
         unsetColor(component);
     }
-    else if (value === "0") {
+    else {
         setColor(component);
     }
 }
@@ -194,7 +215,7 @@ function simulationStatus() {
     if (!decide) {
         startCircuit();
     }
-    else if (decide) {
+    else {
         stopCircuit();
     }
 }
@@ -206,28 +227,26 @@ function stopCircuit() {
         status.innerHTML = "Start";
         speed.selectedIndex = 0;
     }
-    else if (timeline.progress() === 1) {
+    else {
         observ.innerHTML = "Please Restart the simulation";
     }
 }
 function startCircuit() {
     if (circuitStarted) {
         timeline.play();
-        timeline.timeScale(1);
+        timeline.timeScale(parseInt(speed.value));
         observ.innerHTML = "Simulation has started";
         decide = true;
         status.innerHTML = "Pause";
-        speed.selectedIndex = 0;
     }
     else {
         if (textInput[0].textContent !== "2" && textInput[1].textContent !== "2" && textInput[2].textContent !== "2") {
             circuitStarted = true;
             timeline.play();
-            timeline.timeScale(1);
+            timeline.timeScale(parseInt(speed.value));
             observ.innerHTML = "Simulation has started.";
             decide = true;
             status.innerHTML = "Pause";
-            speed.selectedIndex = 0;
         }
         else if(textInput[0].textContent === "2") {
             observ.innerHTML = "Please set the value of input to either 0 or 1";
@@ -241,14 +260,25 @@ function startCircuit() {
     }
 }
 
-function InitInputDots() {
+function initInputDots() {
     //sets the coordinates of the input dots
     for (const inputDot of inputDots) {
         fillInputDots(inputDot, 200, 200, 15, "#FF0000");
         svg.append(inputDot);
     }
 }
-
+function initOutputDots() {
+    //sets the coordinates of the input dots
+    for (const outputDot of outputDots) {
+        fillInputDots(outputDot, 200, 200, 15, "#FF0000");
+        svg.append(outputDot);
+    }
+}
+function outputDotsDisappear() {
+    for (const outputDot of outputDots) {
+        objectDisappear(outputDot);
+    }
+}
 function simulator1() {
     timeline.to(inputDots[0], {
         motionPath: {
@@ -322,11 +352,11 @@ function simulator1() {
 
 function simulator2(){
     if(textInput[1].textContent === "0"){
-        setter(textInput[0].textContent, inputDots[0]);
-        setter(textInput[0].textContent, inputDots[1]);
-        objectAppear(inputDots[0]);
-        objectAppear(inputDots[1]);
-        timeline.to(inputDots[0], {
+        setter(textInput[0].textContent,outputDots[0]);
+        setter(textInput[0].textContent, outputDots[1]);
+        objectAppear(outputDots[0]);
+        objectAppear(outputDots[1]);
+        timeline.to(outputDots[0], {
             motionPath: {
                 path: "#path5",
                 align: "#path5",
@@ -343,7 +373,7 @@ function simulator2(){
             paused: false,
 
         }, 0);
-        timeline.to(inputDots[1], {
+        timeline.to(outputDots[1], {
             motionPath: {
                 path: "#path6",
                 align: "#path6",
@@ -382,14 +412,16 @@ demoWidth();
 textIOInit();
 outputCoordinates();
 inputDotsDisappear();
-InitInputDots();
+outputDotsDisappear();
+initInputDots();
+initOutputDots();
 outputDisappear();
 
 timeline.add(inputDotsAppear, 0);
 timeline.add(simulator1, 0);
-timeline.add(inputDotsDisappear, 7);
+timeline.add(inputDotsDisappear, 9);
 timeline.add(simulator2, 7);
-timeline.add(inputDotsDisappear, 13);
+timeline.add(outputDotsDisappear, 13);
 timeline.add(outputHandler, 13);
 timeline.add(display, 15);
 timeline.eventCallback("onComplete", display);

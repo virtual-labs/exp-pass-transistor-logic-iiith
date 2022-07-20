@@ -70,7 +70,7 @@
     </div>
 
     <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start">
-        <div class="column is-9-desktop is-12-tablet is-12-mobile">
+        <div class="column is-7-desktop is-12-tablet is-12-mobile">
             <div id="circuit-board">
                 <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="120%" viewBox="0 0 925 1000 ">
                     <!-- Transistor  -->
@@ -88,44 +88,44 @@
                         <path d="M 461 261 L 461 211" />
                     </g>
                     <g class="demo-transistor">
-                        <path d="M 431 551 L 491 551" />
-                        <path d="M 431 561 L 491 561" />
-                        <path d="M 431 600.88 L 491 600.88" />
+                        <path d="M 431 601 L 491 601" />
                         <path d="M 431 611 L 491 611" />
-                        <path d="M 441 601 L 441 561" />
-                        <path d="M 481 601 L 481 561" />
-                        <ellipse cx="461" cy="546" rx="5" ry="5" />
-                        <path d="M 461 541 L 461 501" />
-                        <path d="M 481 581 L 521 581" />
-                        <path d="M 401 581 L 441 581" />
-                        <path d="M 461 661 L 461 611" />
+                        <path d="M 431 650.88 L 491 650.88" />
+                        <path d="M 431 661 L 491 661" />
+                        <path d="M 441 651 L 441 611" />
+                        <path d="M 481 651 L 481 611" />
+                        <ellipse cx="461" cy="596" rx="5" ry="5" />
+                        <path d="M 461 591 L 461 551" />
+                        <path d="M 481 631 L 521 631" />
+                        <path d="M 401 631 L 441 631" />
+                        <path d="M 461 711 L 461 661" />
                     </g>
                     <path id="path1" class="demo-wires" d="M 250 181 L 400 181 " />
                     <!--B to upper transistor-->
-                    <path id="path2" class="demo-wires" d="M 250 581 L 400 581 " />
+                    <path id="path2" class="demo-wires" d="M 250 631 L 400 631 " />
                     <!--A to lower transistor-->
-                    <path id="path3" class="demo-wires" d="M 461 381 L 461 261 " />
+                    <path id="path3" class="demo-wires" d="M 461 406 L 461 261 " />
                     <!--clk to upper transistor-->
-                    <path id="path4" class="demo-wires" d="M 461 381 L 461 501 " />
+                    <path id="path4" class="demo-wires" d="M 461 406 L 461 551 " />
                     <!--clk to upper transistor-->
-                    <path id="path5" class="demo-wires" d="M 150 381 L 150 101 L 460 101 " />
+                    <path id="path5" class="demo-wires" d="M 150 381 L 150 81 L 462 81 L 462 101 " />
                     <!--clkbar to upper transistor-->
-                    <path id="path6" class="demo-wires" d="M 150 381 L 150 661 L 460 661 " />
+                    <path id="path6" class="demo-wires" d="M 150 381 L 150 741 L 461 741 L 461 711 " />
                     <!--clkbar to upper transistor-->
                     <path id="path7" class="demo-wires" d="M 520 181 L 660 181 L 660 381 " />
                     <!--outut to upper transistor-->
-                    <path id="path8" class="demo-wires" d="M 520 581 L 660 581 L 660 381 " />
+                    <path id="path8" class="demo-wires" d="M 520 631 L 660 631 L 660 411 " />
                     <!--output to lower transistor-->
 
-                    <circle id="inputB" cx="250" cy="181" r="15" onclick="setInputB()" class="demo-circles" />
-                    <circle id="inputA" cx="250" cy="581" r="15" onclick="setInputA()" class="demo-circles" />
-                    <circle id="clock-bar" cx="150" cy="381" r="15" onclick="setClock()" class="demo-circles" />
-                    <circle id="clock" cx="460" cy="381" r="15" onclick="setClock()" class="demo-circles" />
-                    <circle id="output" cx="660" cy="381" r="15" class="demo-circles" />
+                    <circle id="inputB" cx="250" cy="181" r="20" onclick="setInputB()" class="demo-circles" />
+                    <circle id="inputA" cx="250" cy="631" r="20" onclick="setInputA()" class="demo-circles" />
+                    <circle id="clock-bar" cx="150" cy="406" r="20" onclick="setClock()" class="demo-circles" />
+                    <circle id="clock" cx="460" cy="406" r="20" onclick="setClock()" class="demo-circles" />
+                    <circle id="output" cx="660" cy="406" r="20" class="demo-circles" />
 
-                    <text class="demo-text" x="200" y="560">Input A</text>
-                    <text class="demo-text" x="200" y="220">Input B</text>
-                    <text class="demo-text" x="680" y="390">Output</text>
+                    <text class="demo-text" x="200" y="600">Input A</text>
+                    <text class="demo-text" x="200" y="230">Input B</text>
+                    <text class="demo-text" x="690" y="390">Output</text>
                     <text class="demo-text" x="400" y="390">Clk</text>
                     <text style="text-decoration: overline;" class="demo-text" x="90" y="390">Clk</text>
                 </svg>
@@ -139,12 +139,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="menu">
-        <ul class="menu-options">
-            <li class="menu-option">Delete</li>
-            <li class="menu-option">Cancel</li>
-        </ul>
     </div>
     <script type="module" src="js/animation-mux.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
