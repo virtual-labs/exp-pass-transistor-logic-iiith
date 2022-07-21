@@ -40,7 +40,7 @@ export function compPmos() {
     // render in workspace
     const svgElement = document.createElement('div');
     svgElement.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg"xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -0.5 84 84" >
+    <svg xmlns="https://www.w3.org/2000/svg"xmlns:xlink="https://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -0.5 84 84" >
         <g class="demo-transistor">
             <path d="M 31 61 L 31 21"/>
             <path d="M 41 61 L 41 21"/>
@@ -68,7 +68,7 @@ export function compNmos() {
     const id = "nmos" + count.NMOS;
     const svgElement = document.createElement('div');
     svgElement.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -0.5 84 84">
+    <svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -0.5 84 84">
         <g class="demo-transistor">
             <path d="M 31 61 L 31 21"/>
             <path d="M 41 61 L 41 21"/>
@@ -96,7 +96,7 @@ export function compVdd() {
     const id = "vdd" + count.VDD;
     const svgElement = document.createElement('div');
     svgElement.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -6 44 34" >
+    <svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -6 44 34" >
         <g class="demo-transistor">
             <path d="M 21 31 L 21 1 L 1 1 L 41 1"/>
         </g>
@@ -122,7 +122,7 @@ export function compGround() {
     const container = document.getElementById("diagram");
     const svgElement = document.createElement('div');
     svgElement.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 8 64 44" >
+    <svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 8 64 44" >
         <g class="demo-transistor">
             <path d="M 31 1 L 31 21 L 1 21 L 61 21"/>
             <path d="M 11 31 L 51 31"/>
@@ -148,7 +148,7 @@ export function compTransistor() {
     const id = "pt" + count.Transistor;
     const svgElement = document.createElement('div');
     svgElement.innerHTML = 
-    `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -1 124 164" >
+    `<svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -1 124 164" >
         <g class="demo-transistor">
             <rect x="21" y="21" width="80" height="120" />
             <path d="M 31 51 L 91 51" />
@@ -183,7 +183,7 @@ export function compClock() {
     const id = "clock" + count.Clock;
     const svgElement = document.createElement('div');
     svgElement.innerHTML = 
-    `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -0.5 64 34">
+    `<svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -0.5 64 34">
         <g class="demo-transistor">
             <path d="M 1 31 L 41 31" />
             <path d="M 1 1 L 61 1" />
@@ -192,9 +192,9 @@ export function compClock() {
             <g transform="translate(-0.5 -0.5)">
                 <switch>
                     <foreignObject pointer-events="none" width="100%" height="100%"
-                        requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+                        requiredFeatures="https://www.w3.org/TR/SVG11/feature#Extensibility"
                         style="overflow: visible; text-align: left;">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
+                        <div xmlns="https://www.w3.org/1999/xhtml"
                             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 21px; margin-left: 23px;">
                             <div data-drawio-colors="color: rgb(0, 0, 0); "
                                 style="box-sizing: border-box; font-size: 0px; text-align: center;">
@@ -210,7 +210,7 @@ export function compClock() {
             </g>
         </g>
         <switch>
-            <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" /><a
+            <g requiredFeatures="https://www.w3.org/TR/SVG11/feature#Extensibility" /><a
                 transform="translate(0,-5)"
                 xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems"
                 target="_blank"><text text-anchor="middle" font-size="10px" x="50%"
@@ -236,7 +236,7 @@ export function compClockbar() {
     const id = "clockbar" + count.Clockbar;
     const svgElement = document.createElement('div');
     svgElement.innerHTML = 
-    `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -0.5 64 34">
+    `<svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -0.5 64 34">
         <g class="demo-transistor">
             <path d="M 1 31 L 41 31" />
             <path d="M 1 1 L 61 1" />
@@ -245,9 +245,9 @@ export function compClockbar() {
             <g transform="translate(-0.5 -0.5)">
                 <switch>
                     <foreignObject pointer-events="none" width="100%" height="100%"
-                        requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+                        requiredFeatures="https://www.w3.org/TR/SVG11/feature#Extensibility"
                         style="overflow: visible; text-align: left;">
-                        <div xmlns="http://www.w3.org/1999/xhtml"
+                        <div xmlns="https://www.w3.org/1999/xhtml"
                             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 21px; margin-left: 23px;">
                             <div data-drawio-colors="color: rgb(0, 0, 0); "
                                 style="box-sizing: border-box; font-size: 0px; text-align: center;">
@@ -263,7 +263,7 @@ export function compClockbar() {
             </g>
         </g>
         <switch>
-            <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" /><a
+            <g requiredFeatures="https://www.w3.org/TR/SVG11/feature#Extensibility" /><a
                 transform="translate(0,-5)"
                 xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems"
                 target="_blank"><text text-anchor="middle" font-size="10px" x="50%"

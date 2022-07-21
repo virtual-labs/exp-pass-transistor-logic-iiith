@@ -242,7 +242,7 @@ function simulationStatus() {
 function stopCircuit() {
     if (timeline.time() !== 0 && timeline.progress() !== 1) {
         timeline.pause();
-        observ.innerHTML = "Simulation has been stopped.";
+        observ.innerHTML = "Simulation has been paused.";
         decide = false;
         status.innerHTML = "Start";
         speed.selectedIndex = 0;
@@ -277,13 +277,10 @@ function startCircuit() {
         else if(textInput[2].textContent === "2") {
             observ.innerHTML = "Please set the value of clock to either 0 or 1";
         }
-        else if (timeline.progress() === 1) {
-            observ.innerHTML = "Please Restart the simulation";
-        }
     }
 }
 
-function InitInputDots() {
+function initInputDots() {
     //sets the coordinates of the input dots
     for (const inputDot of inputDots) {
         fillInputDots(inputDot, 200, 200, 15, "#FF0000");
@@ -462,7 +459,7 @@ demoWidth();
 textIOInit();
 outputCoordinates();
 inputDotsDisappear();
-InitInputDots();
+initInputDots();
 outputDisappear();
 
 timeline.add(inputDotsAppear, 0);

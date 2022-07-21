@@ -32,19 +32,19 @@
     {
         "question": "4. Which are following statements are true?",
         "answers": {
-            "a": "Latches are used as temporary buffers  ",
+            "a": "Latches are used as temporary buffers",
             "b": "D latches  are also used in finite state machines.",
-            "c": "D-flipflop is a level Triggering device ",
-            "d": "D-latch is a edge Triggering device "
+            "c": "D-flipflop is a level Triggering device",
+            "d": "D-latch is a edge Triggering device"
         },
         "correctAnswer": "a"
     },
     {
         "question": "5.In positive level d flipflop the output changes for",
         "answers": {
-            "a": "Rising edge of clock ",
-            "b": "Rising edge of input  ",
-            "c": "Falling edge of clock ",
+            "a": "Rising edge of clock",
+            "b": "Rising edge of input",
+            "c": "Falling edge of clock",
             "d": "None"
         },
         "correctAnswer": "a"
