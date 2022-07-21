@@ -76,6 +76,14 @@ function inputDotsDisappear() {
         objectDisappear(inputDot);
     }
 }
+
+function outputDotsDisappear() {
+    for (const outputDot of outputDots) {
+        objectDisappear(outputDot);
+    }
+}
+
+
 function inputDotsAppear() {
     for (const inputDot of inputDots) {
         objectAppear(inputDot);
@@ -102,6 +110,7 @@ function clearObservation() {
 }
 function allDisappear() {
     inputDotsDisappear();
+    outputDotsDisappear();
     outputDisappear();
     inputTextDisappear();
     for (const object of objects) {
@@ -225,7 +234,6 @@ function stopCircuit() {
         observ.innerHTML = "Simulation has been paused.";
         decide = false;
         status.innerHTML = "Start";
-        speed.selectedIndex = 0;
     }
     else {
         observ.innerHTML = "Please Restart the simulation";
@@ -269,11 +277,6 @@ function initOutputDots() {
     for (const outputDot of outputDots) {
         fillInputDots(outputDot, 200, 200, 15, "#FF0000");
         svg.append(outputDot);
-    }
-}
-function outputDotsDisappear() {
-    for (const outputDot of outputDots) {
-        objectDisappear(outputDot);
     }
 }
 function simulator1() {
@@ -424,3 +427,4 @@ timeline.add(display, 15);
 timeline.eventCallback("onComplete", display);
 timeline.pause();
 inputDotsDisappear();
+outputDotsDisappear();

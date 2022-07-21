@@ -34,19 +34,19 @@ const objects = [
     document.getElementById("output"),
 ];
 const textInput = [
-    document.createElementNS(svgns, "text"), 
     document.createElementNS(svgns, "text"),
     document.createElementNS(svgns, "text"),
-    document.createElementNS(svgns, "text") 
+    document.createElementNS(svgns, "text"),
+    document.createElementNS(svgns, "text")
 ];
 const textOutput = [document.createElementNS(svgns, "text")];
 const inputDots = [
-    document.createElementNS(svgns, "circle"), 
     document.createElementNS(svgns, "circle"),
     document.createElementNS(svgns, "circle"),
     document.createElementNS(svgns, "circle"),
     document.createElementNS(svgns, "circle"),
-    document.createElementNS(svgns, "circle") 
+    document.createElementNS(svgns, "circle"),
+    document.createElementNS(svgns, "circle")
 ];
 
 
@@ -118,7 +118,7 @@ function setInputA() {
         if (textInput[1].textContent !== "0") {
             changeTo0(245, 636, 1, 1);
         }
-        else{
+        else {
             changeTo1(245, 636, 1, 1);
         }
         setter(textInput[1].textContent, inputDots[1]);
@@ -135,7 +135,7 @@ function setInputB() {
         if (textInput[0].textContent !== "0") {
             changeTo0(245, 186, 0, 0);
         }
-        else{
+        else {
             changeTo1(245, 186, 0, 0);
         }
         setter(textInput[0].textContent, inputDots[0]);
@@ -145,16 +145,16 @@ function setInputB() {
     }
     else {
         observ.innerHTML = "Simulation has started wait for it to end";
-    }    
+    }
 }
 
-function setClock(){
+function setClock() {
     if (timeline.progress() === 0) {
         if (textInput[2].textContent !== "0") {
             changeTo0(455, 414, 2, 2);
             changeTo1(145, 414, 3, 3);
         }
-        else{
+        else {
             changeTo1(455, 414, 2, 2);
             changeTo0(145, 414, 3, 3);
         }
@@ -205,7 +205,7 @@ function setter(value, component) {
     if (value === "1") {
         unsetColor(component);
     }
-    else{
+    else {
         setColor(component);
     }
 }
@@ -235,7 +235,7 @@ function simulationStatus() {
     if (!decide) {
         startCircuit();
     }
-    else{
+    else {
         stopCircuit();
     }
 }
@@ -245,9 +245,8 @@ function stopCircuit() {
         observ.innerHTML = "Simulation has been paused.";
         decide = false;
         status.innerHTML = "Start";
-        speed.selectedIndex = 0;
     }
-    else{
+    else {
         observ.innerHTML = "Please Restart the simulation";
     }
 }
@@ -268,13 +267,13 @@ function startCircuit() {
             decide = true;
             status.innerHTML = "Pause";
         }
-        else if(textInput[0].textContent === "2") {
+        else if (textInput[0].textContent === "2") {
             observ.innerHTML = "Please set the value of input B to either 0 or 1";
         }
-        else if(textInput[1].textContent === "2") {
+        else if (textInput[1].textContent === "2") {
             observ.innerHTML = "Please set the value of input A to either 0 or 1";
         }
-        else if(textInput[2].textContent === "2") {
+        else if (textInput[2].textContent === "2") {
             observ.innerHTML = "Please set the value of clock to either 0 or 1";
         }
     }
@@ -393,9 +392,9 @@ function simulator1() {
     }, 0);
 }
 
-function simulator2(){
-    if(textInput[2].textContent==="0") {
-        setter(textInput[1].textContent,inputDots[3]);
+function simulator2() {
+    if (textInput[2].textContent === "0") {
+        setter(textInput[1].textContent, inputDots[3]);
         objectAppear(inputDots[3]);
         timeline.to(inputDots[3], {
             motionPath: {
@@ -404,7 +403,7 @@ function simulator2(){
                 autoRotate: true,
                 alignOrigin: [0.5, 0.5]
             },
-    
+
             duration: 6,
             delay: 7,
             repeat: 0,
@@ -412,38 +411,38 @@ function simulator2(){
             yoyo: true,
             ease: "none",
             paused: false,
-    
+
         }, 0);
         textOutput[0].textContent = textInput[1].textContent;
     }
-    else{
-            setter(textInput[0],inputDots[0]);
-            objectAppear(inputDots[0]);
-            timeline.to(inputDots[0], {
-                motionPath: {
-                    path: "#path7",
-                    align: "#path7",
-                    autoRotate: true,
-                    alignOrigin: [0.5, 0.5]
-                },
-        
-                duration: 6,
-                delay: 7,
-                repeat: 0,
-                repeatDelay: 3,
-                yoyo: true,
-                ease: "none",
-                paused: false,
-        
-            }, 0);
-            textOutput[0].textContent = textInput[0].textContent;
-        
+    else {
+        setter(textInput[0], inputDots[0]);
+        objectAppear(inputDots[0]);
+        timeline.to(inputDots[0], {
+            motionPath: {
+                path: "#path7",
+                align: "#path7",
+                autoRotate: true,
+                alignOrigin: [0.5, 0.5]
+            },
+
+            duration: 6,
+            delay: 7,
+            repeat: 0,
+            repeatDelay: 3,
+            yoyo: true,
+            ease: "none",
+            paused: false,
+
+        }, 0);
+        textOutput[0].textContent = textInput[0].textContent;
+
     }
 }
 
 function outputHandler() {
     objectAppear(textOutput[0]);
-    if(textInput[2].textContent==="1"){
+    if (textInput[2].textContent === "1") {
         setter(textOutput[0].textContent, objects[4]);
     }
     else {
