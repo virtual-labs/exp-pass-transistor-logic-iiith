@@ -50,18 +50,16 @@
 		</div>
 	</div>
 
-	<div class="columns is-variable is-1 is-centered is-flex-wrap-wrap">
-		<div id="start" class="column is-2-desktop is-2-tablet is-3-mobile center-content">
-			<button class="v-button" onclick="circuitValidate()">Validate</button>
-		</div>
-		<div id="restart" class="column is-2-desktop is-2-tablet is-3-mobile center-content">
-			<button class="v-button" onclick="refreshWorkingArea()">Reset</button>
-		</div>
-	</div>
+	<div class="columns is-centered">
+        <div class="column" style="margin:auto;text-align:center">
+            <button class="v-button" onclick="circuitValidate()">Validate</button>
+            <button class="v-button" onclick="refreshWorkingArea()">Reset</button>
+        </div>
+    </div>
 
-	<div class="columns is-variable is-1 is-centered is-flex-wrap-wrap">
-		<div class="column is-2-desktop is-3-tablet is-2-mobile my-2 center-content">
-			<div class="v-datalist-container">
+	<div class="columns is-centered is-flex is-flex-direction-row is-flex-wrap-wrap is-align-content-start">
+		<div class="column is-2-desktop is-12-tablet is-12-mobile">
+			<div class="v-datalist-container" style="height:100%">
 				<div class="v-datalist-title">
 					ToolBar
 				</div>
@@ -98,31 +96,6 @@
 							NMOS
 						</div>
 					</div>
-					<div class="toolbar-component" onclick="compVdd()">
-						<div class="each-toolbar-component has-text-centered">
-							<svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"
-								version="1.1" viewBox="-0.5 -6 44 34">
-								<g class="demo-transistor">
-									<path d="M 21 31 L 21 1 L 1 1 L 41 1" />
-								</g>
-							</svg>
-							VDD
-						</div>
-					</div>
-					<div class="toolbar-component" onclick="compGround()">
-						<div class="each-toolbar-component has-text-centered">
-							<svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"
-								version="1.1" viewBox="-0.5 8 64 44">
-								<g class="demo-transistor">
-									<path d="M 31 1 L 31 21 L 1 21 L 61 21" />
-									<path d="M 11 31 L 51 31">
-										<path d="M 21 41 L 41 41">
-								</g>
-							</svg>
-							Ground
-						</div>
-					</div>
-
 					<div class="toolbar-component" onclick="compClock()">
 						<div class="each-toolbar-component has-text-centered">
 							<svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"
@@ -231,13 +204,13 @@
 			</div>
 		</div>
 
-		<div class="column is-7-desktop is-9-tablet is-10-mobile center-content">
+		<div class="column is-7-desktop is-12-tablet is-12-mobile center-content">
 			<div class="is-flex-wrap-wrap center-content simulation-container" id="diagram">
 			</div>
 		</div>
 
-		<div class="column is-3-desktop is-8-tablet is-8-mobile center-content">
-			<div class="v-datalist-container">
+		<div class="column is-3-desktop is-12-tablet is-12-mobile center-content">
+			<div class="v-datalist-container toolbar-item-list">
 				<div class="v-datalist-title">
 					Observation
 				</div>
