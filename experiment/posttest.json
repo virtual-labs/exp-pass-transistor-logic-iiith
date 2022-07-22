@@ -30,7 +30,7 @@
         "correctAnswer": "b"
     },
     {
-        "question": "4. Which are following statements are true?",
+        "question": "4. Which of the following statements are true?",
         "answers": {
             "a": "Latches are used as temporary buffers",
             "b": "D latches  are also used in finite state machines.",
