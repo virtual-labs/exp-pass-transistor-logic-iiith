@@ -35,7 +35,7 @@ In the **transmission gates** the input to the gate acts as the controlling inpu
 
 Multiplexer or MUX, which is also known as data selector, is a combinational circuit with multiple input and single output. At a time a single input is selected and given as output based on select signal.
 
-A multiplexer selects binary information present on any one on the input line, depending upon logic status of the selection inputs and routes to the output line. If there are n selection line then number of possible routes input lines is 2n and then multiplexer is referred as a 2n x 1 multiplexer.
+A multiplexer selects binary information present on any one on the input line, depending upon logic status of the selection inputs and routes to the output line. If there are n selection line then number of possible routes input lines is 2<sup>n</sup> and then multiplexer is referred as a 2<sup>n</sup> x 1 multiplexer.
 
 **Advantages of Multiplexer based on pass transistor:**
 

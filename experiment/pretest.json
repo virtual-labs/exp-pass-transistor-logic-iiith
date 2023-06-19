@@ -3,7 +3,7 @@
     "question": "1. Multiplexer is a ?",
     "answers": {
       "a": "Combinational Circuit",
-      "b": "Combinational Circuit",
+      "b": "Both a and c",
       "c": " Sequential Circuit",
       "d": "None of the above"
     },
