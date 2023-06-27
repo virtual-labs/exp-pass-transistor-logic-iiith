@@ -1,4 +1,6 @@
-[
+{
+    "version": 2.0,
+    "questions": [
     {
         "question": "1.How many pass transistors are required to build 2 X 1 mux circuit?",
         "answers": {
@@ -7,7 +9,13 @@
             "c": "0 ",
             "d": "1 "
         },
-        "correctAnswer": "a"
+        "correctAnswer": "a" ,
+        "explanations": {
+          "a":"",
+          "b":"",
+          "c":"",
+          "d":""},
+        "difficulty": "intermediate"
     },
     {
         "question": "2. For negative edge pass tansistor the clock should be connected to?",
@@ -17,7 +25,13 @@
             "c": "Gate of nmos",
             "d": "Gate of pmos"
         },
-        "correctAnswer": "d"
+        "correctAnswer": "d" ,
+        "explanations": {
+          "a":"",
+          "b":"",
+          "c":"",
+          "d":""},
+        "difficulty": "advanced"
     },
     {
         "question": "3. Control logic in the mux circuit is given by",
@@ -27,7 +41,13 @@
             "c": "DataLine1",
             "d": "DataLine2"
         },
-        "correctAnswer": "b"
+        "correctAnswer": "b" ,
+        "explanations": {
+          "a":"",
+          "b":"",
+          "c":"",
+          "d":""},
+        "difficulty": "beginner"
     },
     {
         "question": "4. Which of the following statements are true?",
@@ -37,7 +57,13 @@
             "c": "D-flipflop is a level Triggering device",
             "d": "D-latch is a edge Triggering device"
         },
-        "correctAnswer": "a"
+        "correctAnswer": "a" ,
+        "explanations": {
+          "a":"",
+          "b":"",
+          "c":"",
+          "d":""},
+        "difficulty": "intermediate"
     },
     {
         "question": "5.In positive level d flipflop the output changes for",
@@ -47,6 +73,13 @@
             "c": "Falling edge of clock",
             "d": "None"
         },
-        "correctAnswer": "a"
+        "correctAnswer": "a" ,
+        "explanations": {
+          "a":"",
+          "b":"",
+          "c":"",
+          "d":""},
+        "difficulty": "intermediate"
     }
 ]
+}

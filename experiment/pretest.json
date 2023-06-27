@@ -1,4 +1,6 @@
-[
+{
+  "version": 2.0,
+  "questions": [
   {
     "question": "1. Multiplexer is a ?",
     "answers": {
@@ -7,7 +9,13 @@
       "c": " Sequential Circuit",
       "d": "None of the above"
     },
-    "correctAnswer": "a"
+    "correctAnswer": "a" ,
+    "explanations": {
+      "a":"",
+      "b":"",
+      "c":"",
+      "d":""},
+    "difficulty": "beginner"
   },
   {
     "question": "2. Transmission gate is a?",
@@ -17,7 +25,13 @@
       "c": "Parallel combination of NMOS and PMOS",
       "d": "None of the above"
     },
-    "correctAnswer": "c"
+    "correctAnswer": "c" ,
+    "explanations": {
+      "a":"",
+      "b":"",
+      "c":"",
+      "d":""},
+    "difficulty": "beginner"
   },
   {
     "question": "3. Transmission gate is preferred over Complementary CMOS logic because ____",
@@ -27,7 +41,13 @@
       "c": "Both of them",
       "d": "None of the above"
     },
-    "correctAnswer": "c"
+    "correctAnswer": "c" ,
+    "explanations": {
+      "a":"",
+      "b":"",
+      "c":"",
+      "d":""},
+    "difficulty": "intermediate"
   },
   {
     "question": "4. How many 2x1 multiplexer will be require to design 8x1 multiplexer?",
@@ -37,7 +57,13 @@
       "c": "Four",
       "d": "Eight"
     },
-    "correctAnswer": "b"
+    "correctAnswer": "b" ,
+    "explanations": {
+      "a":"",
+      "b":"",
+      "c":"",
+      "d":""},
+    "difficulty": "advanced"
   },
   {
     "question": "5. Multiplexer is also known as:",
@@ -47,6 +73,13 @@
       "c": "Single Input Many Output",
       "d": "None"
     },
-    "correctAnswer": "b"
+    "correctAnswer": "b" ,
+    "explanations": {
+      "a":"",
+      "b":"",
+      "c":"",
+      "d":""},
+    "difficulty": "beginner"
   }
 ]
+}
