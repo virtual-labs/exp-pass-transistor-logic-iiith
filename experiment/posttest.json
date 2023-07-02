@@ -11,10 +11,10 @@
         },
         "correctAnswer": "a" ,
         "explanations": {
-          "a":"",
-          "b":"",
-          "c":"",
-          "d":""},
+          "a":"To build a 2x1 mux, we require two pass transistors. Each pass transistor is responsible for passing one input signal (A or B) to the output based on the select line (S).",
+          "b":"Having four pass transistors would imply an incorrect circuit configuration.",
+          "c":"We definitely need pass transistors to build a 2x1 mux. Without pass transistors, the circuit cannot function as intended.",
+          "d":"One pass transistor alone cannot handle both input signals and the select line properly."},
         "difficulty": "intermediate"
     },
     {
@@ -27,10 +27,10 @@
         },
         "correctAnswer": "d" ,
         "explanations": {
-          "a":"",
-          "b":"",
-          "c":"",
-          "d":""},
+          "a":"The drain of a PMOS transistor is typically used as the output node or connected to the power supply voltage (VDD). It is not a suitable connection for the clock signal in the context of a negative edge pass transistor.",
+          "b":"The source of an NMOS transistor is typically connected to the ground (GND) or the lowest voltage level in the circuit. Connecting the clock signal to the source of an NMOS transistor would not be appropriate for a negative edge pass transistor.",
+          "c":"The gate of an NMOS transistor is typically used to control the transistor's conduction. Connecting the clock signal to the gate of an NMOS transistor may have unintended consequences and could lead to circuit malfunctions.",
+          "d":"In this configuration, the PMOS transistor acts as a switch, and the clock signal controls its conduction. When the clock transitions from a high level to a low level (negative edge), the PMOS transistor turns on, allowing the signal to pass through."},
         "difficulty": "advanced"
     },
     {
@@ -43,10 +43,10 @@
         },
         "correctAnswer": "b" ,
         "explanations": {
-          "a":"",
-          "b":"",
-          "c":"",
-          "d":""},
+          "a":"The clock signal is commonly used in digital circuits for synchronization and timing purposes, but it is not directly related to the control logic of a mux",
+          "b":"The control logic in a mux circuit can use the complement (inverse) of the clock signal to control the selection of inputs. The mux may be designed to select different inputs based on whether the clock or its complement is active. This allows the mux to switch between different input sources based on the clock signal's rising or falling edges.",
+          "c":"The control logic in a mux circuit is not directly determined by a data line. Data lines typically carry the input signals that are being multiplexed, but they do not control the selection of inputs.",
+          "d":"The control logic in a mux circuit is not directly determined by a data line. Data lines typically carry the input signals that are being multiplexed, but they do not control the selection of inputs."},
         "difficulty": "beginner"
     },
     {
@@ -59,10 +59,10 @@
         },
         "correctAnswer": "a" ,
         "explanations": {
-          "a":"",
-          "b":"",
-          "c":"",
-          "d":""},
+          "a":"Latches are sequential logic devices that can store a single bit of information. They are often used as temporary buffers to hold data temporarily before it is transferred to another circuit or device.",
+          "b":"While D latches can be used in digital circuits, including sequential circuits like finite state machines, it is more common to use D flip-flops in such applications. D flip-flops are preferred because they have clocked inputs that make them suitable for synchronizing signals in sequential circuits.",
+          "c":"D flip-flops are edge-triggered devices, not level-triggered. They are specifically designed to respond to changes in the clock signal, either on the rising edge (positive edge-triggered) or falling edge (negative edge-triggered). The D input is sampled and stored when the clock edge occurs.",
+          "d":" D latch is not an edge-triggered device; it is level-sensitive. It means that the outputs of a D latch respond to the input signals continuously as long as the enable signal is active. The output of a D latch changes as soon as the input changes, rather than waiting for a clock edge "},
         "difficulty": "intermediate"
     },
     {
@@ -75,10 +75,10 @@
         },
         "correctAnswer": "a" ,
         "explanations": {
-          "a":"",
-          "b":"",
-          "c":"",
-          "d":""},
+          "a":"In a positive level D flip-flop, the output changes when there is a rising edge (transition from low to high) on the clock signal. The output reflects the value of the D (data) input at that moment.",
+          "b":"The output of a D flip-flop is not directly affected by the rising edge of the input. The input value is only sampled and stored ",
+          "c":"In a positive level D flip-flop, the output does not change on the falling edge (transition from high to low) of the clock",
+          "d":"The output of a positive level D flip-flop changes, so it is not accurate to say that it remains unchanged"},
         "difficulty": "intermediate"
     }
 ]
