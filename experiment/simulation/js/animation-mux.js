@@ -296,7 +296,7 @@ function simulator1() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 6,
+        duration: 7,
         delay: 0,
         repeat: 0,
         repeatDelay: 3,
@@ -313,7 +313,7 @@ function simulator1() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 6,
+        duration: 7,
         delay: 0,
         repeat: 0,
         repeatDelay: 3,
@@ -330,7 +330,7 @@ function simulator1() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 6,
+        duration: 7,
         delay: 0,
         repeat: 0,
         repeatDelay: 3,
@@ -347,7 +347,7 @@ function simulator1() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 6,
+        duration: 7,
         delay: 0,
         repeat: 0,
         repeatDelay: 3,
@@ -364,7 +364,7 @@ function simulator1() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 6,
+        duration: 7,
         delay: 0,
         repeat: 0,
         repeatDelay: 3,
@@ -381,7 +381,7 @@ function simulator1() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 6,
+        duration: 7,
         delay: 0,
         repeat: 0,
         repeatDelay: 3,

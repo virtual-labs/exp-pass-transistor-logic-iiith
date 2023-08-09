@@ -1,13 +1,22 @@
-[
+
+{
+  "version": 2.0,
+  "questions": [
   {
     "question": "1. Multiplexer is a ?",
     "answers": {
       "a": "Combinational Circuit",
-      "b": "Combinational Circuit",
+      "b": "Both a and c",
       "c": " Sequential Circuit",
       "d": "None of the above"
     },
-    "correctAnswer": "a"
+    "correctAnswer": "a" ,
+    "explanations": {
+      "a":"A multiplexer, often abbreviated as MUX, is indeed a type of combinational circuit. It is a digital circuit that selects and routes one of many input signals to a single output based on the control inputs. The selection of the input signal is determined by the binary code present at the control inputs.",
+      "b":"Either one/both are wrong.",
+      "c":"Sequential circuits are designed to store and process data sequentially, and they contain memory elements to retain state information. Multiplexers, on the other hand, do not store any information internally and do not have feedback loops.",
+      "d":"Either one/both are correct."},
+    "difficulty": "beginner"
   },
   {
     "question": "2. Transmission gate is a?",
@@ -17,7 +26,13 @@
       "c": "Parallel combination of NMOS and PMOS",
       "d": "None of the above"
     },
-    "correctAnswer": "c"
+    "correctAnswer": "c" ,
+    "explanations": {
+      "a":"A transmission gate is not a parallel combination of two NMOS transistors. In a transmission gate, both NMOS and PMOS transistors are used together.",
+      "b":"A transmission gate is not a series combination of NMOS and PMOS transistors. ",
+      "c":"It is commonly used as a bidirectional switch in digital circuits, where the NMOS and PMOS transistors are connected in parallel to allow current flow in both directions.",
+      "d":"One of the above options is correct."},
+    "difficulty": "beginner"
   },
   {
     "question": "3. Transmission gate is preferred over Complementary CMOS logic because ____",
@@ -27,7 +42,13 @@
       "c": "Both of them",
       "d": "None of the above"
     },
-    "correctAnswer": "c"
+    "correctAnswer": "c" ,
+    "explanations": {
+      "a":"Transmission gates are known for their efficiency in terms of transistor count. They require fewer transistors compared to complementary CMOS logic to implement a logic function. This reduces the overall complexity and size of the circuit, making it an attractive choice in terms of resource utilization.",
+      "b":"Transmission gates have less intrinsic delay due to their simpler structure, which can result in faster operation and improved performance.",
+      "c":"Transmission gates have a lower transistor count and offer low delay, making them advantageous over complementary CMOS logic in terms of efficiency and performance.",
+      "d":"One of the above options is correct."},
+    "difficulty": "intermediate"
   },
   {
     "question": "4. How many 2x1 multiplexer will be require to design 8x1 multiplexer?",
@@ -37,7 +58,13 @@
       "c": "Four",
       "d": "Eight"
     },
-    "correctAnswer": "b"
+    "correctAnswer": "b" ,
+    "explanations": {
+      "a":"To construct an 8x1 multiplexer, we can cascade smaller multiplexers, but three 2x1 multiplexers would only yield an output size of 4 (2x2x2).",
+      "b":"To select among eight inputs, we need three select lines (since 2^3 = 8).Each select line controls two 2x1 multiplexers. We can use three select lines to control six 2x1 multiplexers (2x3 = 6).The output of these six 2x1 multiplexers can be fed into another 2x1 multiplexer, which is controlled by the remaining select line. By using this arrangement, we can achieve an 8x1 multiplexer.",
+      "c":"Four 2x1 multiplexers would yield an output size of 2 (2x2), which is insufficient for an 8x1 multiplexer",
+      "d":"It would be unnecessary to use eight 2x1 multiplexers directly since we can achieve the same functionality using fewer multiplexers."},
+    "difficulty": "advanced"
   },
   {
     "question": "5. Multiplexer is also known as:",
@@ -47,6 +74,13 @@
       "c": "Single Input Many Output",
       "d": "None"
     },
-    "correctAnswer": "b"
+    "correctAnswer": "b" ,
+    "explanations": {
+      "a":"A counter is a digital circuit that counts the number of input pulses or events and generates a corresponding output. It is not synonymous with a multiplexer.",
+      "b":"A multiplexer, often referred to as a data select or simply a selector, is a combinational circuit that selects one of many inputs and forwards it to a single output line",
+      "c":"It does not describe the behavior or function of a multiplexer, which selects one input among multiple inputs.",
+      "d":"The statement 'None' does not accurately describe a multiplexer. A multiplexer is a well-defined digital circuit with specific characteristics and functionality."},
+    "difficulty": "beginner"
   }
 ]
+}

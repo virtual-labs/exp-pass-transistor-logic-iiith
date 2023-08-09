@@ -24,16 +24,13 @@ As we already know PMOS permits flow of current from source to drain when the in
 |0 	|   1     | X   |
 |1 	|   1     | X   |
 
-
-Click on the following image to see the steps in making of complementary pass transistor
-
 <img src="images/ps3.jpg">
 
 The above shown pass transistor will now be able to give a good one as well as good zero. At the time when S=1, both will be able to pass so whether the input signal is zero or one it will be passed almost as it is.
 
 **MULTIPLEXER**
 
-The multiplexer selects one of many analog or digital input. A multiplexer with 2n input lines have n select lines. The select lines can either be 0 or 1. Depending on the binary number(formed by combination of 1s and 0s) at the select lines. One of the input is selected and it is passed on to the output.
+The multiplexer selects one of many analog or digital input. A multiplexer with 2<sup>n</sup> input lines have n select lines. The select lines can either be 0 or 1. Depending on the binary number(formed by combination of 1s and 0s) at the select lines. One of the input is selected and it is passed on to the output.
 
 The block diagram and truth table of the 2 input multiplexer is given below:
 
@@ -41,7 +38,7 @@ The block diagram and truth table of the 2 input multiplexer is given below:
 
 <img src="images/truth_table_2mux.jpg">
 
-The logical expression for output can be **AS'+BS**. If we implement this logic using nands and nors then no. of transistor required would be 5. We can use the knowledge of pass transistors,control variables an pass variables.
+The logical expression for output can be **AS'+BS**. If we implement this logic using nands and nors then no. of transistor required would be 5. We can use the knowledge of pass transistors, control variables and pass variables.
 
  - Choice of control variable and pass variable??
  
@@ -53,5 +50,5 @@ The logical expression for output can be **AS'+BS**. If we implement this logic 
 
 <img src="images/pass_transistor_s1.jpg">
 
-The upper combination of nmos and pmos is switched on and hence B is passed. Similarily if select variable is 0 A is passed.
+If select variable is 1, the upper combination of nmos and pmos is switched on and hence B is passed. Similarily if select variable is 0 A is passed.
 
