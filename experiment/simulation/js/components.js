@@ -26,7 +26,7 @@ jsplumbInstance.bind("ready", function () {
         }
     });
 });
-export const wireColours = {"input":"#00ff00","pmos":"#0000ff","nmos":"#bf6be3","clock":"#ff00ff","clockbar":"#00ffff","pt":"#ff8000"};
+export const wireColours = {"input":"#00ff00","pmos":"#0000ff","nmos":"#bf6be3","clock":"#ff00ff","clockbar":"#00ffff","pt":"#ff8000","vdd":"#ffa500","ground":"#800080"};
 function getWireColor(sourceId)  {
     let tempId = sourceId.slice(0, -1);
     return wireColours[tempId];
