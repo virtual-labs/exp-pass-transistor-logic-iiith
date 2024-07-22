@@ -309,7 +309,7 @@ export function compClockbar() {
 export function comp2Input0() {
     const id = "input0";
     const svgElement = document.createElement('div');
-    svgElement.innerHTML = 'Input 1<br><br>';
+    svgElement.innerHTML = 'Input <br><span style="font-size: 1.5rem; font-weight: bold;">1</span><br>';
     svgElement.id = id;
     svgElement.className = 'io-component';
     svgElement.style.top = "1.25rem";
@@ -319,14 +319,24 @@ export function comp2Input0() {
     jsplumbInstance.draggable(id, { "containment": true });
     addInstanceFinalInput(id);
     componentsList.push(svgElement);
+
+    // Add click event listener to toggle value
+    svgElement.addEventListener('click', () => {
+        if (svgElement.innerHTML.includes('Input <br><span style="font-size: 1.5rem; font-weight: bold;">1</span><br>')) {
+            svgElement.innerHTML = 'Input <br><span style="font-size: 1.5rem; font-weight: bold;">0</span><br>';
+        } else {
+            svgElement.innerHTML = 'Input <br><span style="font-size: 1.5rem; font-weight: bold;">1</span><br>';
+        }
+    });
 }
 
+
+
 export function comp2Input1() {
-    if(selectedTab!==currentTab.PT)
-    {
+    if (selectedTab !== currentTab.PT) {
         const id = "input1";
         const svgElement = document.createElement('div');
-        svgElement.innerHTML = 'Input 2<br><br>';
+        svgElement.innerHTML = 'Input <br><span style="font-size: 1.5rem; font-weight: bold;">1</span><br>';
         svgElement.id = id;
         svgElement.className = 'io-component';
         svgElement.style.top = "5.25rem";
@@ -336,8 +346,19 @@ export function comp2Input1() {
         jsplumbInstance.draggable(id, { "containment": true });
         addInstanceFinalInput(id);
         componentsList.push(svgElement);
+
+        // Add click event listener to toggle value
+        svgElement.addEventListener('click', () => {
+            if (svgElement.innerHTML.includes('Input <br><span style="font-size: 1.5rem; font-weight: bold;">1</span><br>')) {
+                svgElement.innerHTML = 'Input <br><span style="font-size: 1.5rem; font-weight: bold;">0</span><br>';
+            } else {
+                svgElement.innerHTML = 'Input <br><span style="font-size: 1.5rem; font-weight: bold;">1</span><br>';
+            }
+        });
     }
 }
+
+
 
 export function comp2Output() {
     const id = "output0";
