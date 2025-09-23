@@ -1,7 +1,7 @@
 'use strict';
 import{jsplumbInstance,addInstanceClock,addInstanceClockbar,addInstanceFinalInput,addInstanceFinalOutput,addInstanceGround,addInstanceNmos,addInstancePmos,addInstanceVdd,addInstanceTransistor} from './components.js';
 import { componentsList, selectedTab, currentTab } from './main.js';
-import {ptValidate,muxValidate} from './mux.js';
+import {ptValidate,muxValidate,xorValidate} from './mux.js';
 
 let count = { PMOS: 0, NMOS: 0, VDD: 0, Ground: 0, Inverter: 0, Mux: 0, Latch: 0, Transistor: 0, Clock: 0, Clockbar: 0 };
 let maxCount = { PMOS: 1, NMOS: 1, VDD: 0, Ground: 0, Inverter: 0, Mux: 0, Latch: 0, Transistor: 0, Clock: 1, Clockbar: 1 };
@@ -13,16 +13,22 @@ export function resetCounts() {
     {
         maxCount = { PMOS: 1, NMOS: 1, VDD: 0, Ground: 0, Inverter: 0, Mux: 0, Latch: 0, Transistor: 0, Clock: 1, Clockbar: 1 };
     }
-    else{
+    else if(selectedTab===currentTab.MUX){
         maxCount = { PMOS: 0, NMOS: 0, VDD: 0, Ground: 0, Inverter: 0, Mux: 0, Latch: 0, Transistor: 2, Clock: 1, Clockbar: 1 };
+    }
+    else {
+        maxCount = { PMOS: 2, NMOS: 2, VDD: 1, Ground: 1, Inverter: 0, Mux: 0, Latch: 0, Transistor: 2, Clock: 0, Clockbar: 0 };
     }
 }
 export function circuitValidate() {
     if (selectedTab === currentTab.PT) {
         ptValidate();
     }
-    else {
+    else if (selectedTab === currentTab.MUX) {
         muxValidate();
+    }
+    else {
+        xorValidate();
     }
     document.getElementById('error-container').style = 'display:none;';
 }
@@ -33,30 +39,38 @@ export function compPmos() {
         document.getElementById('error-container').style.display = 'flex';
         return;
     }
+
     //  keep tracking count
     const id = "pmos" + count.PMOS;
     count.PMOS += 1;
     const container = document.getElementById("diagram");
+
     // render in workspace
     const svgElement = document.createElement('div');
-    svgElement.innerHTML = `
-    <svg xmlns="https://www.w3.org/2000/svg"xmlns:xlink="https://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -0.5 84 84" >
-        <g class="demo-transistor">
-            <path d="M 31 61 L 31 21"/>
-            <path d="M 41 61 L 41 21"/>
-            <path d="M 41 31 L 61 31 L 61 1"/>
-            <path d="M 61 81 L 61 51 L 41 51"/>
-            <path d="M 1 41 L 17.67 41"/>
-            <ellipse cx="23.02" cy="40.11" rx="5.357142857142858" ry="5.357142857142858"/>
-        </g>
-    </svg>`;    
+    svgElement.innerHTML = ` 
+        <svg xmlns="https://www.w3.org/2000/svg"xmlns:xlink="https://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -0.5 84 84" >
+            <g class="demo-transistor">
+                <path d="M 31 61 L 31 21"/>
+                <path d="M 41 61 L 41 21"/>
+                <path d="M 41 31 L 61 31 L 61 1"/>
+                <path d="M 61 81 L 61 51 L 41 51"/>
+                <path d="M 1 41 L 17.67 41"/>
+                <ellipse cx="23.02" cy="40.11" rx="5.357142857142858" ry="5.357142857142858"/>
+            </g>
+        </svg>`;
     svgElement.id = id;
     svgElement.className = 'component';
-    // Added javasript objects and their properties    
+    svgElement.midTerminal = 1;
+    svgElement.outTerminal = 1;
+    svgElement.voltage = 0;
+    svgElement.outVoltage = 0;
+    // d.number = count1;
+    // Added javasript objects and their properties
+
     container.insertAdjacentElement("afterbegin", svgElement);
     jsplumbInstance.draggable(id, { "containment": true });
-    addInstancePmos(id);
     componentsList.push(svgElement);
+    addInstancePmos(id);
 }
 
 export function compNmos() {
@@ -65,26 +79,35 @@ export function compNmos() {
         document.getElementById('error-container').style.display = 'flex';
         return;
     }
+
     const id = "nmos" + count.NMOS;
+
     const svgElement = document.createElement('div');
     svgElement.innerHTML = `
-    <svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -0.5 84 84">
-        <g class="demo-transistor">
-            <path d="M 31 61 L 31 21"/>
-            <path d="M 41 61 L 41 21"/>
-            <path d="M 41 31 L 61 31 L 61 1"/>
-            <path d="M 61 81 L 61 51 L 41 51"/>
-            <path d="M 1 41 L 31 41"/>
-        </g>
-    </svg>`;
+        <svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -0.5 84 84">
+            <g class="demo-transistor">
+                <path d="M 31 61 L 31 21"/>
+                <path d="M 41 61 L 41 21"/>
+                <path d="M 41 31 L 61 31 L 61 1"/>
+                <path d="M 61 81 L 61 51 L 41 51"/>
+                <path d="M 1 41 L 31 41"/>
+            </g>
+        </svg>`;
     svgElement.id = id;
     svgElement.className = 'component';
+    svgElement.voltage = 0;
+    svgElement.midTerminal = 1;
+    svgElement.outTerminal = 1;
+    svgElement.outVoltage = 0;
     count.NMOS += 1;
     const container = document.getElementById("diagram");
+
+
     container.insertAdjacentElement("afterbegin", svgElement);
+
     jsplumbInstance.draggable(id, { "containment": true });
-    addInstanceNmos(id);
     componentsList.push(svgElement);
+    addInstanceNmos(id);
 }
 
 export function compVdd() {
@@ -93,23 +116,26 @@ export function compVdd() {
         document.getElementById('error-container').style.display = 'flex';
         return;
     }
+
     const id = "vdd" + count.VDD;
+
     const svgElement = document.createElement('div');
     svgElement.innerHTML = `
-    <svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -6 44 34" >
-        <g class="demo-transistor">
-            <path d="M 21 31 L 21 1 L 1 1 L 41 1"/>
-        </g>
-    </svg>`;
+        <svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" version="1.1" viewBox="-0.5 -6 44 34" >
+            <g class="demo-transistor">
+                <path d="M 21 31 L 21 1 L 1 1 L 41 1"/>
+            </g>
+        </svg>`;
     svgElement.id = id;
     svgElement.className = 'component';
     svgElement.voltage = 1;
     count.VDD += 1;
     const container = document.getElementById("diagram");
+
     container.insertAdjacentElement("afterbegin", svgElement);
     jsplumbInstance.draggable(id, { "containment": true });
-    addInstanceVdd(id);
     componentsList.push(svgElement);
+    addInstanceVdd(id);
 }
 
 export function compGround() {
@@ -283,7 +309,7 @@ export function compClockbar() {
 export function comp2Input0() {
     const id = "input0";
     const svgElement = document.createElement('div');
-    svgElement.innerHTML = 'Input 1<br><br>';
+    svgElement.innerHTML = 'Input <br><span style="font-size: 1.5rem; font-weight: bold;">1</span><br>';
     svgElement.id = id;
     svgElement.className = 'io-component';
     svgElement.style.top = "1.25rem";
@@ -293,14 +319,24 @@ export function comp2Input0() {
     jsplumbInstance.draggable(id, { "containment": true });
     addInstanceFinalInput(id);
     componentsList.push(svgElement);
+
+    // Add click event listener to toggle value
+    svgElement.addEventListener('click', () => {
+        if (svgElement.innerHTML.includes('Input <br><span style="font-size: 1.5rem; font-weight: bold;">1</span><br>')) {
+            svgElement.innerHTML = 'Input <br><span style="font-size: 1.5rem; font-weight: bold;">0</span><br>';
+        } else {
+            svgElement.innerHTML = 'Input <br><span style="font-size: 1.5rem; font-weight: bold;">1</span><br>';
+        }
+    });
 }
 
+
+
 export function comp2Input1() {
-    if(selectedTab===currentTab.MUX)
-    {
+    if (selectedTab !== currentTab.PT) {
         const id = "input1";
         const svgElement = document.createElement('div');
-        svgElement.innerHTML = 'Input 2<br><br>';
+        svgElement.innerHTML = 'Input <br><span style="font-size: 1.5rem; font-weight: bold;">1</span><br>';
         svgElement.id = id;
         svgElement.className = 'io-component';
         svgElement.style.top = "5.25rem";
@@ -310,8 +346,19 @@ export function comp2Input1() {
         jsplumbInstance.draggable(id, { "containment": true });
         addInstanceFinalInput(id);
         componentsList.push(svgElement);
+
+        // Add click event listener to toggle value
+        svgElement.addEventListener('click', () => {
+            if (svgElement.innerHTML.includes('Input <br><span style="font-size: 1.5rem; font-weight: bold;">1</span><br>')) {
+                svgElement.innerHTML = 'Input <br><span style="font-size: 1.5rem; font-weight: bold;">0</span><br>';
+            } else {
+                svgElement.innerHTML = 'Input <br><span style="font-size: 1.5rem; font-weight: bold;">1</span><br>';
+            }
+        });
     }
 }
+
+
 
 export function comp2Output() {
     const id = "output0";

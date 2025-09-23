@@ -8,7 +8,7 @@ container.addEventListener("contextmenu", function (e) {
 });
 
 export let componentsList = [];
-export const currentTab = { MUX: 0, PT: 1 };
+export const currentTab = { MUX: 0, PT: 1, XOR: 2 };
 export let selectedTab = currentTab.MUX;
 const tabs = document.querySelectorAll('.v-tabs li');
 const EMPTY="";
