@@ -1,0 +1,11 @@
+{
+  _: [],
+  f: [
+    '/home/runner/work/exp-pass-transistor-logic-iiith/exp-pass-transistor-logic-iiith/experiment-descriptor.json'
+  ],
+  files: [
+    '/home/runner/work/exp-pass-transistor-logic-iiith/exp-pass-transistor-logic-iiith/experiment-descriptor.json'
+  ],
+  '$0': 'validate'
+}
+Validated true

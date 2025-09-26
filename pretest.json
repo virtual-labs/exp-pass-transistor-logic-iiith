@@ -1,0 +1,90 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. Multiplexer is a ?",
+      "answers": {
+        "a": "Combinational Circuit",
+        "b": "Both a and c",
+        "c": " Sequential Circuit",
+        "d": "None of the above"
+      },
+      "correctAnswer": "a",
+      "explanations": {
+        "a": "Correct. A multiplexer is a combinational circuit that selects one of many inputs based on control signals.",
+        "b": "Incorrect. Both a and c cannot be correct; only combinational is correct.",
+        "c": "Incorrect. Multiplexers do not store information or have memory elements, so they are not sequential circuits.",
+        "d": "Incorrect. None of the above is not correct; multiplexer is a combinational circuit."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. Transmission gate is a?",
+      "answers": {
+        "a": "Parallel combination of two NMOS",
+        "b": "Series combination of NMOS and PMOS",
+        "c": "Parallel combination of NMOS and PMOS",
+        "d": "None of the above"
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. A transmission gate is not a parallel combination of two NMOS transistors; it uses both NMOS and PMOS in parallel.",
+        "b": "Incorrect. A transmission gate is not a series combination of NMOS and PMOS transistors.",
+        "c": "Correct. A transmission gate is a parallel combination of NMOS and PMOS, allowing bidirectional current flow.",
+        "d": "Incorrect. One of the above options is correct, not none."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. Transmission gate is preferred over Complementary CMOS logic because ____",
+      "answers": {
+        "a": "Transistor count required to implement a logic function in transmission gate is low",
+        "b": "Low Delay",
+        "c": "Both of them",
+        "d": "None of the above"
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. Low transistor count alone is not the only reason transmission gates are preferred; low delay is also important.",
+        "b": "Incorrect. Low delay alone is not the only reason transmission gates are preferred; low transistor count is also important.",
+        "c": "Correct. Transmission gates are preferred over complementary CMOS logic because they have lower transistor count and low delay.",
+        "d": "Incorrect. One of the above options is correct, not none."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "4. How many 2x1 multiplexer will be require to design 8x1 multiplexer?",
+      "answers": {
+        "a": "Three",
+        "b": "Seven",
+        "c": "Four",
+        "d": "Eight"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. Three 2x1 multiplexers are not sufficient to design an 8x1 multiplexer.",
+        "b": "Correct. Seven 2x1 multiplexers are required to design an 8x1 multiplexer using cascading.",
+        "c": "Incorrect. Four 2x1 multiplexers are not sufficient for an 8x1 multiplexer.",
+        "d": "Incorrect. Eight 2x1 multiplexers are not required; fewer can achieve the same functionality."
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "question": "5. Multiplexer is also known as:",
+      "answers": {
+        "a": "Counter",
+        "b": "Data Select",
+        "c": "Single Input Many Output",
+        "d": "None"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. A counter is not a multiplexer; it counts pulses, not selects data.",
+        "b": "Correct. A multiplexer is also known as a data select because it selects one of many inputs.",
+        "c": "Incorrect. Multiplexer is not a single input many output device; it is the opposite.",
+        "d": "Incorrect. None is not correct; multiplexer is a well-defined digital circuit."
+      },
+      "difficulty": "beginner"
+    }
+  ]
+}
